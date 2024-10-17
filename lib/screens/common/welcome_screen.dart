@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:joke_app/utils/text_constant.dart';
 import 'package:provider/provider.dart';
 import '../../providers/joke_provider.dart';
 
@@ -25,7 +26,7 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Welcome to Dad Jokes!!!',
+                    TextConstants.welcome,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

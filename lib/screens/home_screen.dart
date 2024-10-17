@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joke_app/providers/joke_provider.dart';
+import 'package:joke_app/utils/text_constant.dart';
 import '../components/app_bar.dart';
 import 'common/infinite_joke_scroller.dart';
 import 'common/welcome_screen.dart';
@@ -18,12 +19,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    _initializeJokes();
+  }
+
+  void _initializeJokes() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<JokeProvider>().searchJokes('');
     });
   }
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static const List<Widget> _widgetOptions = [
     WelcomeScreen(),
     InfiniteJokeScroller(),
   ];
@@ -45,11 +50,11 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: TextConstants.home,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.format_quote),
-            label: 'Jokes',
+            label: TextConstants.jokes,
           ),
         ],
         currentIndex: _selectedIndex,

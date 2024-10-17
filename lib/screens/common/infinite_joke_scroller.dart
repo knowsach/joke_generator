@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:joke_app/utils/text_constant.dart';
 import 'package:provider/provider.dart';
-import '../../providers/joke_provider.dart';
+import '../../../providers/joke_provider.dart';
 import '../../components/joke_card.dart';
 
 class InfiniteJokeScroller extends StatefulWidget {
@@ -79,7 +80,7 @@ class _InfiniteJokeScrollerState extends State<InfiniteJokeScroller> {
 
               if (provider.jokeList.isEmpty) {
                 return const Center(
-                  child: Text('No jokes found'),
+                  child: Text(TextConstants.noJokesFound),
                 );
               }
 

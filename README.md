@@ -8,8 +8,9 @@ A Flutter-based mobile application that delivers a daily dose of laughter with r
 
 1. Ensure you have an Android emulator set up or an Android device connected to your computer.
 2. Open a terminal in the project root directory.
-3. Run the following command:
+3. Run the following commands:
    ```
+   flutter pub get
    flutter run
    ```
 
@@ -17,8 +18,9 @@ A Flutter-based mobile application that delivers a daily dose of laughter with r
 
 1. Ensure you have Xcode installed and an iOS simulator set up or an iOS device connected to your Mac.
 2. Open a terminal in the project root directory.
-3. Run the following command:
+3. Run the following commands:
    ```
+   flutter pub get
    flutter run
    ```
 

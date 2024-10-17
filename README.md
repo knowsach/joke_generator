@@ -1,16 +1,25 @@
 # joke_app
 
-A new Flutter project.
+A Flutter-based mobile application that delivers a daily dose of laughter with random jokes. This app fetches jokes from an API and presents them in a clean, user-friendly interface, allowing users to enjoy humor on-the-go.
 
-## Getting Started
+## Running the App
 
-This project is a starting point for a Flutter application.
+### Android
 
-A few resources to get you started if this is your first Flutter project:
+1. Ensure you have an Android emulator set up or an Android device connected to your computer.
+2. Open a terminal in the project root directory.
+3. Run the following command:
+   ```
+   flutter run
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### iOS
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Ensure you have Xcode installed and an iOS simulator set up or an iOS device connected to your Mac.
+2. Open a terminal in the project root directory.
+3. Run the following command:
+   ```
+   flutter run
+   ```
+
+Note: For iOS, you need to be on a Mac to run the app on either a simulator or a physical device.

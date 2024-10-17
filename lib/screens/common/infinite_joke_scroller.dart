@@ -17,9 +17,6 @@ class _InfiniteJokeScrollerState extends State<InfiniteJokeScroller> {
   void initState() {
     super.initState();
     _scrollController.addListener(_scrollListener);
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      context.read<JokeProvider>().searchJokes('');
-    });
   }
 
   @override

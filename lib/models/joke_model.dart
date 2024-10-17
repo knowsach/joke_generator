@@ -23,8 +23,3 @@ class Joke {
     return parsed.map<Joke>((json) => Joke.fromJson(json)).toList();
   }
 }
-
-List<Joke> parseJokes(String responseBody) {
-  final parsed = json.decode(responseBody)['results'] as List;
-  return parsed.map<Joke>((json) => Joke.fromJson(json)).toList();
-}

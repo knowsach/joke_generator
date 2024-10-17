@@ -9,8 +9,16 @@ class JokeProvider with ChangeNotifier {
   String error = '';
   int currentPage = 1;
   String currentQuery = '';
+  String _searchQuery = '';
 
   bool get isLoadingMore => _isLoadingMore;
+
+  String get searchQuery => _searchQuery;
+
+  void setSearchQuery(String query) {
+    _searchQuery = query;
+    notifyListeners();
+  }
 
   // Fetch a random joke
   Future<void> fetchRandomJoke() async {
@@ -48,14 +56,15 @@ class JokeProvider with ChangeNotifier {
   }
 
   // Update searchJokes method
-  Future<void> searchJokes(String query) async {
+  Future<void> searchJokes() async {
     isLoading = true;
-    currentQuery = query;
+    currentQuery = _searchQuery;
     currentPage = 1;
     notifyListeners();
 
     try {
-      jokeList = await ApiService().searchJokes(query, page: currentPage);
+      jokeList =
+          await ApiService().searchJokes(currentQuery, page: currentPage);
     } catch (e) {
       error = 'Failed to load jokes';
     } finally {

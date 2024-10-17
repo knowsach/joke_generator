@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _initializeJokes() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<JokeProvider>().searchJokes('');
+      context.read<JokeProvider>().searchJokes();
     });
   }
 

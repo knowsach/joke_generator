@@ -19,12 +19,15 @@ class _InfiniteJokeScrollerState extends State<InfiniteJokeScroller> {
   void initState() {
     super.initState();
     _scrollController.addListener(_scrollListener);
+    _searchController.text = context.read<JokeProvider>().searchQuery;
+    _searchController.addListener(_onSearchChanged);
   }
 
   @override
   void dispose() {
     _scrollController.removeListener(_scrollListener);
     _scrollController.dispose();
+    _searchController.removeListener(_onSearchChanged);
     _searchController.dispose();
     super.dispose();
   }
@@ -41,11 +44,12 @@ class _InfiniteJokeScrollerState extends State<InfiniteJokeScroller> {
   }
 
   void _onSearch(String query) {
-    if (query.isEmpty) {
-      context.read<JokeProvider>().searchJokes('');
-    } else {
-      context.read<JokeProvider>().searchJokes(query);
-    }
+    context.read<JokeProvider>().setSearchQuery(query);
+    context.read<JokeProvider>().searchJokes();
+  }
+
+  void _onSearchChanged() {
+    context.read<JokeProvider>().setSearchQuery(_searchController.text);
   }
 
   @override
@@ -54,19 +58,24 @@ class _InfiniteJokeScrollerState extends State<InfiniteJokeScroller> {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: TextField(
-            controller: _searchController,
-            decoration: InputDecoration(
-              hintText: 'Search jokes...',
-              suffixIcon: IconButton(
-                icon: const Icon(Icons.clear),
-                onPressed: () {
-                  _searchController.clear();
-                  _onSearch('');
-                },
-              ),
-            ),
-            onSubmitted: _onSearch,
+          child: Consumer<JokeProvider>(
+            builder: (context, provider, _) {
+              return TextField(
+                controller: _searchController,
+                decoration: InputDecoration(
+                  hintText: 'Search jokes...',
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.clear),
+                    onPressed: () {
+                      _searchController.clear();
+                      provider.setSearchQuery('');
+                      provider.searchJokes();
+                    },
+                  ),
+                ),
+                onSubmitted: _onSearch,
+              );
+            },
           ),
         ),
         Expanded(

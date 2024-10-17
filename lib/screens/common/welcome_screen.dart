@@ -27,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
                   const Text(
                     'Welcome to Dad Jokes!!!',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
@@ -37,10 +37,10 @@ class WelcomeScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
-                        jokeProvider.jokeList[0].joke,
+                        '" ${jokeProvider.jokeList[0].joke} "',
                         textAlign: TextAlign.center,
                         style: const TextStyle(
-                          fontSize: 30,
+                          fontSize: 26,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
